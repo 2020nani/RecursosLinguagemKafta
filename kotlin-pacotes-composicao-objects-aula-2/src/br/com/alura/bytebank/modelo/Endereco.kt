@@ -10,13 +10,21 @@ class Endereco(
     var complemento: String = ""
 ) {
     override fun equals(other: Any?): Boolean {
-        if(other != null && other is Endereco){
-            return this.cep == other.cep && this.logradouro == other.logradouro
-        }
-        return false
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Endereco
+
+        if (logradouro != other.logradouro) return false
+        if (cep != other.cep) return false
+
+        return true
     }
 
     override fun hashCode(): Int {
-        return cep.hashCode() + logradouro.hashCode()
+        var result = logradouro.hashCode()
+        result = 31 * result + cep.hashCode()
+        return result
     }
+
 }
