@@ -1,19 +1,14 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.modelo.Cliente
-import br.com.alura.bytebank.modelo.Conta
-import br.com.alura.bytebank.modelo.ContaCorrente
 import br.com.alura.bytebank.modelo.Endereco
+import br.com.alura.bytebank.teste.testaObject
 
 
 fun main() {
-    var objectDeclaration = object {
-        var nome = "hernani"
-    }
-    println(objectDeclaration.nome)
-    val endereco = Endereco(logradouro = "primeiro")
-    val cliente = Cliente(nome = "Herm", cpf = "",endereco = endereco,senha = 123456)
-    val clienteCC = ContaCorrente(titular = cliente,numero = 1)
-    println("Contador: ${Conta.total}")
-
+   val endereco = Endereco(logradouro = "rua 20",cep = "18608-460")
+   val endereco2 = Endereco(logradouro = "rua 20",cep = "18608-460")
+    println(endereco.equals(endereco2))
+    println(endereco.hashCode())
+    println(endereco2.hashCode())
 }
+
